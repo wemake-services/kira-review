@@ -13,12 +13,14 @@
 #   to collect maximum amount of issues in a code review comment
 
 # Can only warn:
-danger.import_dangerfile(path: 'danger-stages/optional')
+danger.import_dangerfile(path: 'danger-stages/optional/Dangerfile')
 
 # Platform specific files (can both `warn` and `fail` pipeline)
 ENV.fetch('DANGER_PLATFORMS', '').split(',').each { |platform|
-  danger.import_dangerfile(path: "danger-platforms/#{platform.strip()}")
+  danger.import_dangerfile(
+    path: "danger-platforms/#{platform.strip()}/Dangerfile"
+  )
 }
 
 # Critical checks, fail only:
-danger.import_dangerfile(path: 'danger-stages/critical')
+danger.import_dangerfile(path: 'danger-stages/critical/Dangerfile')
