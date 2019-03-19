@@ -13,13 +13,13 @@ RUN apk --no-cache add \
   && gem install bundler
 
 # Install deps:
-WORKDIR /code
-COPY Gemfile Gemfile.lock /code/
+WORKDIR /danger
+COPY Gemfile Gemfile.lock /danger/
 
 RUN bundle install --frozen --deployment
 
 # Copy Dangerfiles:
-COPY . /code/
+COPY . /danger/
 
 # Running
 ENTRYPOINT ["bundle", "exec"]

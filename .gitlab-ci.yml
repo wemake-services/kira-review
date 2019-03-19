@@ -1,11 +1,14 @@
 review:
-  # Installing review bot (danger) and plugins to it:
   stage: test
-  image: ruby:2.3
-  before_script:
-    - gem install danger-gitlab danger-todoist
+  image: wemakeservices/kira-review:latest
+  variables:
+    # Set platforms that you are using for the project.
+    # Example: "elixir,node"
+    # See: https://github.com/wemake-services/kira-review
+    DANGER_PLATFORMS: ""
   script:
-    - danger --fail-on-errors=true
+    - danger --fail-on-errors=true --fail-if-no-pr=true --base=master \
+      --dangerfile-path=/danger
   except:
     - master
     - schedules
