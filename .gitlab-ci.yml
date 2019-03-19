@@ -8,7 +8,7 @@ review:
     DANGER_PLATFORMS: ""
   script:
     - danger --fail-on-errors=true --fail-if-no-pr=true
-      --base=master --dangerfile=/danger/Dangerfile
+      --dangerfile=/danger/Dangerfile
   except:
     - master
     - schedules
