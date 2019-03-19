@@ -1,0 +1,39 @@
+# HIGHLIGHT WITH A CLICKABLE LINK IF IMPORTANT FILES ARE CHANGED.
+important_files = [
+  ".gitlab-ci.yml",
+  ".gitignore",
+]
+
+important_files.each do |item|
+  warn "#{gitlab.html_link(item)} was edited.", sticky: true if
+    git.modified_files.include? item
+end
+
+# ENSURE THERE IS A SUMMARY FOR A MR.
+warn "Please provide a summary in the MR description, at least 50 chars" if
+  gitlab.mr_body.length < 50
+
+# ENSURE THAT EACH MERGE REQUEST CLOSES AT LEAST ONE ISSUE.
+warn "MR does not close any issues. Should close at least one" unless
+  gitlab.mr_title.index /closes #\d+/i
+
+# MAKE SURE THAT BRANCH WILL BE REMOVED.
+warn "Please make sure to auto-remove source branch" unless
+  gitlab.mr_json["should_remove_source_branch"]
+
+# MAKE SURE THAT MR COMMITS WILL BE SQUASHED.
+warn "Please make sure to squash commits" if
+  not gitlab.mr_json["squash"] and git.commits.length > 1
+
+# MAKE SURE THAT MR CAN BE MERGED VIA UI.
+warn "This MR cannot be merged, you will need to rebase it or assign Kira" if
+  gitlab.mr_json["merge_status"] != "can_be_merged"
+
+# MAKE SURE THAT MR HAS TIME TRACKING ATTACHED.
+warn "This MR does not have time tracking, please attach your stats" if
+  gitlab.mr_json["time_stats"]["time_estimate"] == 0
+
+# MAKE SURE THAT WE TRACK ALL NEW TODOS.
+todoist.message = "Consider creating task chains out of new todos in the code"
+todoist.warn_for_todos
+todoist.print_todos_table
