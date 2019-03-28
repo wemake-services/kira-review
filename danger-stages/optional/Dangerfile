@@ -5,7 +5,7 @@ important_files = [
 ]
 
 important_files.each do |item|
-  warn "#{gitlab.html_link(item)} was edited.", sticky: true if
+  warn "#{gitlab.html_link(item)} was edited", sticky: true if
     git.modified_files.include? item
 end
 
@@ -15,7 +15,7 @@ warn "Please provide a summary in the MR description, at least 50 chars" if
 
 # ENSURE THAT EACH MERGE REQUEST CLOSES AT LEAST ONE ISSUE.
 warn "MR does not close any issues. Should close at least one" unless
-  gitlab.mr_body.index /closes #\d+/i 
+  gitlab.mr_body.index /closes #\d+/i
 
 # MAKE SURE THAT BRANCH WILL BE REMOVED.
 warn "Please make sure to auto-remove source branch" unless
@@ -31,7 +31,7 @@ warn "This MR cannot be merged, you will need to rebase it or assign Kira" if
 
 # MAKE SURE THAT MR HAS TIME TRACKING ATTACHED.
 warn "This MR does not have time tracking, please attach your stats" if
-  gitlab.mr_json["time_stats"]["time_estimate"] == 0
+  gitlab.mr_json["time_stats"]["total_time_spent"] == 0
 
 # MAKE SURE THAT WE TRACK ALL NEW TODOS.
 todoist.message = "Consider creating task chains out of new todos in the code"

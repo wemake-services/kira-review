@@ -2,7 +2,7 @@
 failure(
   "MR is not classified as Work in Progress.
   So why is it running inside the CI?
-  See our policy about working with MRs.",
+  See our policy about working with MRs",
   sticky: true
 ) unless gitlab.mr_json["work_in_progress"]
 
