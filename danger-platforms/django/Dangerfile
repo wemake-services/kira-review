@@ -1,0 +1,23 @@
+# HIGHLIGHT WITH A CLICKABLE LINK IF IMPORTANT FILES ARE CHANGED.
+important_files = [
+  "manage.py",
+  "pyproject.toml",
+  "setup.cfg",
+  "docker-compose.yml",
+  "docker/docker-compose.prod.yml",
+  "docker/django/Dockerfile",
+  "docker/ci.sh",
+]
+
+important_files.each do |item|
+  warn "#{gitlab.html_link(item)} was edited.", sticky: true if
+    git.modified_files.include? item
+end
+
+# CODE CHANGES MUST ALSO BRING TEST CHANGES.
+has_app_changes = !git.modified_files.grep(/server/).empty?
+tests_updated = !git.modified_files.grep(/tests/).empty?
+if has_app_changes && !tests_updated
+  warn("The library files were changed, but the tests remained unmodified.
+  Consider updating or adding to the tests to match the library changes.")
+end

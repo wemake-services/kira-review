@@ -17,6 +17,22 @@
 # and we tend to use the full path. The same as in Dockerfile.
 # In case you just want to copy this file, then deal with paths.
 
+# Welcome message:
+message(
+  "Before getting a real human to review your code I am here to help you.
+  You will need to fix critical issues, otherwise your CI build will not pass.
+  Warnings are also required to be fixed, but there are exceptions.
+
+  Reviewer should ask you about unfixed warnings.
+
+  If you have any questions:
+  1. Read: https://github.com/wemake-services/kira-review
+  2. Ping your architect, ask right away
+  3. Create a bug, that something is not working / is not clear
+
+  Have fun!"
+)
+
 # Can only warn:
 danger.import_dangerfile(path: "/danger/danger-stages/optional/")
 
