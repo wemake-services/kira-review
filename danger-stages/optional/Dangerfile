@@ -15,7 +15,7 @@ warn "Please provide a summary in the MR description, at least 50 chars" if
 
 # ENSURE THAT EACH MERGE REQUEST CLOSES AT LEAST ONE ISSUE.
 warn "MR does not close any issues. Should close at least one" unless
-  gitlab.mr_title.index /closes #\d+/i
+  gitlab.mr_body.index /closes #\d+/i 
 
 # MAKE SURE THAT BRANCH WILL BE REMOVED.
 warn "Please make sure to auto-remove source branch" unless
