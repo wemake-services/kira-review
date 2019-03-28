@@ -34,4 +34,4 @@ You would need to set:
 - `DANGER_GITLAB_API_TOKEN` token
 
 Optional variables:
-- `DANGER_PLATFORMS` defines a set of platform specific rules, see `danger-platforms/` for more information, eg: `elixir,node`
+- `DANGER_PLATFORMS` defines a set of platform specific rules, see [`danger-platforms/`](https://github.com/wemake-services/kira-review/tree/master/danger-platforms) for more information, eg: `elixir,node`
