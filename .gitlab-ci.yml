@@ -9,5 +9,7 @@ review:
   script:
     - danger --fail-on-errors=true --fail-if-no-pr=true
       --dangerfile=/danger/Dangerfile
-  only:
-    - merge_requests
+  except:
+    - master
+    - schedules
+    - tags
