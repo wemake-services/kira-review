@@ -26,7 +26,7 @@ message(
   Reviewer should ask you about unfixed warnings.
 
   If you have any questions:
-  1. Read: https://github.com/wemake-services/kira-review
+  1. Read docs: https://github.com/wemake-services/kira-review
   2. Ping your architect, ask right away
   3. Create a bug, that something is not working / is not clear
 
