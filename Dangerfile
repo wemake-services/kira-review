@@ -6,10 +6,7 @@
 #   So it will be possible to fix these issues without creating new commits
 # 2. Use `failure` for all things that are important and are related to code.
 #   So people will have to create new commits to address these issues.
-# 3. Use `sticky: true` for things that
-#   show attempts for potentially risky behaviour:
-#   like secrets or config modification, too big submissions, etc.
-# 4. Place `failure`s after all `warn` rules
+# 3. Place `failure`s after all `warn` rules
 #   to collect maximum amount of issues in a code review comment
 #
 # Runtime:

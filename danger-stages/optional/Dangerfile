@@ -5,7 +5,7 @@ important_files = [
 ]
 
 important_files.each do |item|
-  warn "#{gitlab.html_link(item)} was edited", sticky: true if
+  warn "#{gitlab.html_link(item)} was edited" if
     git.modified_files.include? item
 end
 

@@ -11,7 +11,7 @@ failure "Please re-submit this MR to master branch. This one can be closed" if
   gitlab.branch_for_merge != "master"
 
 # FAIL REALLY BIG DIFFS.
-failure "We cannot handle the scale of this MR, split it", sticky: true if
+failure "We cannot handle the scale of this MR, split it" if
   git.lines_of_code > 3000
 
 # FAIL WHEN GIT HAS MERGE COMMITS.
