@@ -18,13 +18,9 @@
 message(
   "Before getting a real human to review your code I am here to help you.
 
-  Make sure that you are familiar with our
-  [merge request workflow](https://wemake.services/meta/rsdp/creating-merge-requests).
+  Make sure that you are familiar with our [merge request workflow](https://wemake.services/meta/rsdp/creating-merge-requests).
 
-  Long story short, you will need to fix critical issues,
-  otherwise your CI build will not pass.
-  Warnings are also required to be fixed,
-  but there are some exceptions when it is fine to leave them as-is.
+  Long story short, you will need to fix critical issues, otherwise your CI build will not pass. Warnings are also required to be fixed, but there are some exceptions when it is fine to leave them as-is.
 
   Reviewer must ask you about unfixed warnings if something is not clear.
 
