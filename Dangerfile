@@ -23,9 +23,10 @@ message(
 
   Long story short, you will need to fix critical issues,
   otherwise your CI build will not pass.
-  Warnings are also required to be fixed, but there are exceptions.
+  Warnings are also required to be fixed,
+  but there are some exceptions when it is fine to leave them as-is.
 
-  Reviewer should ask you about unfixed warnings.
+  Reviewer must ask you about unfixed warnings if something is not clear.
 
   If you have any questions:
   1. Read docs: https://github.com/wemake-services/kira-review

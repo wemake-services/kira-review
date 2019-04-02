@@ -12,6 +12,6 @@ end
 has_app_changes = !git.modified_files.grep(/lib/).empty?
 tests_updated = !git.modified_files.grep(/test/).empty?
 if has_app_changes && !tests_updated
-  warn("The library files were changed, but the tests remained unmodified.
+  warn("The source code was changed, but the tests remained unmodified.
   Consider updating or adding to the tests to match the library changes.")
 end
