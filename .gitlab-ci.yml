@@ -3,13 +3,11 @@ review:
   image: wemakeservices/kira-review:latest
   variables:
     # Set platforms that you are using for the project.
-    # Example: "elixir,node"
+    # Example: "elixir, nuxt, django"
     # See: https://github.com/wemake-services/kira-review
     DANGER_PLATFORMS: ""
   script:
     - danger --fail-on-errors=true --fail-if-no-pr=true
       --dangerfile=/danger/Dangerfile
-  except:
-    - master
-    - schedules
-    - tags
+  only:
+    - merge_requests
