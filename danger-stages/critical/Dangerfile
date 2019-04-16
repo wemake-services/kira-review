@@ -12,7 +12,7 @@ failure "Please re-submit this MR to master branch. This one can be closed" if
 
 # FAIL REALLY BIG DIFFS.
 failure "We cannot handle the scale of this MR, split it" if
-  git.lines_of_code > 3000
+  git.lines_of_code > 5000
 
 # FAIL WHEN GIT HAS MERGE COMMITS.
 if git.commits.any? { |c| c.message =~ /^Merge branch/ }
