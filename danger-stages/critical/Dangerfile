@@ -1,11 +1,3 @@
-# FAIL CI WHEN AN MR IS NOT CLASSIFIED AS WORK IN PROGRESS.
-failure(
-  "MR is not classified as Work in Progress.
-  So why is it running inside the CI?
-  See our policy about working with MRs",
-  sticky: true
-) unless gitlab.mr_json["work_in_progress"]
-
 # ONLY ACCEPT MRS TO THE MASTER BRANCH.
 failure "Please re-submit this MR to master branch. This one can be closed" if
   gitlab.branch_for_merge != "master"
