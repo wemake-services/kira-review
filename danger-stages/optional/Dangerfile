@@ -35,6 +35,12 @@ warn "This MR does not have time tracking, please attach your stats" if
   gitlab.mr_json["time_stats"]["total_time_spent"] == 0
 
 # MAKE SURE THAT WE TRACK ALL NEW TODOS.
-todoist.message = "Consider creating task chains out of new todos in the code"
-todoist.warn_for_todos
-todoist.print_todos_table
+begin
+  todoist.message = "Consider creating task chains out of new todos in the code"
+  todoist.warn_for_todos
+  todoist.print_todos_table
+rescue StandardError => msg
+  puts "TODOS plugin failed"
+  puts msg
+  warn "TODOs cannot be fetched, see CI logs for more information"
+end
