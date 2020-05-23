@@ -3,11 +3,11 @@
 #
 # Policy:
 # 1. Use `warn` for all things that are important, but not related to code.
-#   So it will be possible to fix these issues without creating new commits
+#    So it will be possible to fix these issues without creating new commits
 # 2. Use `failure` for all things that are important and are related to code.
-#   So people will have to create new commits to address these issues.
+#    So people will have to create new commits to address these issues.
 # 3. Place `failure`s after all `warn` rules
-#   to collect maximum amount of issues in a code review comment
+#    to collect maximum amount of issues in a code review comment
 #
 # Runtime:
 # Note, that this script is executed inside a docker container,
