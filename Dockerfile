@@ -1,4 +1,4 @@
-FROM ruby:2.6-alpine
+FROM ruby:3.1-alpine
 
 LABEL maintainer="sobolevn@wemake.services"
 LABEL vendor="wemake.services"
