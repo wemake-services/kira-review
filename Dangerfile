@@ -37,7 +37,7 @@ danger.import_dangerfile(path: "/danger/danger-stages/optional/")
 
 # Local checks (can both `warn` and `fail` pipeline):
 localfile = ENV.fetch("DANGER_LOCALFILE", "").strip()
-if localfile do
+if localfile
   puts "Found local Dangerfile: #{ localfile }"
   danger.import_dangerfile(localfile)
 end
