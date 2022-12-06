@@ -44,7 +44,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: wemakeservices/kira-release
+          images: wemakeservices/kira-review
           flavor: latest=true
 
       - name: Build and push Docker image
