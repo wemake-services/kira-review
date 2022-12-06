@@ -39,7 +39,7 @@ danger.import_dangerfile(path: "/danger/danger-stages/optional/")
 localfile = ENV.fetch("DANGER_LOCALFILE", "").strip()
 if localfile
   puts "Found local Dangerfile: #{ localfile }"
-  danger.import_dangerfile(localfile)
+  danger.import_dangerfile(path: localfile)
 end
 
 # Platform specific files (can both `warn` and `fail` pipeline):
