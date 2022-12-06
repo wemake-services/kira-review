@@ -1,3 +1,0 @@
-# This file is only required to run `danger dry_run` with it.
-
-failure "We cannot handle the scale of this PR" if git.lines_of_code > 50_000
