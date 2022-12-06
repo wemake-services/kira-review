@@ -17,12 +17,12 @@ jobs:
     - name: build docker image
       run: docker build . --tag=wemake-services/kira-review
 
-    - name: run docker-based test
+    - name: dry-run docker-based test
       run: |
+        # We use existing commit from this repo to illustrate the build process:
         docker run \
-          -v $PWD:/code \
           wemake-services/kira-review \
-          danger --fail-on-errors=true --fail-if-no-pr=true --dangerfile=/danger/Dangerfile
+          danger --version
 
   deploy:
     if: "github.event_name == 'push' && github.repository == 'wemake-services/kira-review'"

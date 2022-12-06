@@ -6,7 +6,7 @@ important_files = [
   "docker-compose.yml",
   "docker/docker-compose.prod.yml",
   "docker/django/Dockerfile",
-  "docker/ci.sh",
+  "docker/django/ci.sh",
   "config/.env.template",
 ]
 

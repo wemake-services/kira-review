@@ -13,7 +13,7 @@ RUN apk --no-cache add \
 WORKDIR /danger
 COPY Gemfile Gemfile.lock /danger/
 
-RUN bundle install --frozen --deployment
+RUN bundle install
 
 # Copy Dangerfiles:
 COPY . /danger/
