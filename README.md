@@ -37,3 +37,4 @@ You would need to set:
 Optional variables:
 
 - `DANGER_PLATFORMS` defines a set of platform specific rules, see [`danger-platforms/`](https://github.com/wemake-services/kira-review/tree/master/danger-platforms) for more information, eg: `elixir,django`
+- `DANGER_LOCALFILE` defines a file relative to the reviewed repo, where to look for local rules
