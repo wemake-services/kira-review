@@ -22,6 +22,7 @@ jobs:
         # We use existing commit from this repo to illustrate the build process:
         docker run \
           -v $PWD:/code \
+          -e DANGER_USE_LOCAL_GIT=true \
           wemake-services/kira-review \
           danger dry_run --fail-on-errors=true --fail-if-no-pr=true --dangerfile=/danger/tests/Dangerfile
 
