@@ -35,6 +35,12 @@ message(
 # Can only warn:
 danger.import_dangerfile(path: "/danger/danger-stages/optional/")
 
+# Local checks (can both `warn` and `fail` pipeline):
+localfile = ENV.fetch("DANGER_LOCALFILE", "")
+if localfile do
+  danger.import_dangerfile(localfile)
+end
+
 # Platform specific files (can both `warn` and `fail` pipeline):
 ENV.fetch("DANGER_PLATFORMS", "").split(",").each { |platform|
   danger.import_dangerfile(
