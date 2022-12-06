@@ -19,9 +19,12 @@ jobs:
 
     - name: dry-run docker-based test
       run: |
+        # We use existing commit from this repo to illustrate the build process:
         docker run \
           -v $PWD:/code \
           -e GITLAB_CI=true \
+          -e CI_COMMIT_BRANCH=master \
+          -e CI_COMMIT_SHA=99251cb663ba02f8100ccde7535511dd78d11a9a \
           wemake-services/kira-review \
           danger dry_run --fail-on-errors=true --fail-if-no-pr=true --dangerfile=/danger/tests/Dangerfile
 
