@@ -34,6 +34,10 @@ warn "This MR cannot be merged, you will need to rebase it or assign Kira" if
 warn "This MR does not have time tracking, please attach your stats" if
   gitlab.mr_json["time_stats"]["total_time_spent"] == 0
 
+# WARN REALLY BIG DIFFS.
+warn "We cannot handle the scale of this MR, better split it" if
+  git.lines_of_code > 5000
+
 # MAKE SURE THAT WE TRACK ALL NEW TODOS.
 begin
   todoist.message = "Consider creating task chains out of new todos in the code"
