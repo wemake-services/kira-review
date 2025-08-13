@@ -19,12 +19,12 @@ warn "MR does not close any issues. Should close at least one" unless
 
 # MAKE SURE THAT BRANCH WILL BE REMOVED.
 warn "Please make sure to auto-remove source branch" unless
-  gitlab.mr_json["should_remove_source_branch"] or
+  gitlab.mr_json["should_remove_source_branch"] ||
   gitlab.mr_json["force_remove_source_branch"]
 
 # MAKE SURE THAT MR COMMITS WILL BE SQUASHED.
 warn "Please make sure to squash commits" if
-  not gitlab.mr_json["squash"] and git.commits.length > 1
+  !gitlab.mr_json["squash"] && git.commits.length > 1
 
 # MAKE SURE THAT MR CAN BE MERGED VIA UI.
 warn "This MR cannot be merged, you will need to rebase it or assign Kira" if
