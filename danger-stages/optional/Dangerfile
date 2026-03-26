@@ -35,7 +35,7 @@ warn "This MR does not have time tracking, please attach your stats" if
   gitlab.mr_json["time_stats"]["total_time_spent"] == 0
 
 # WARN REVIEW ON WIP PRS.
-wark "MR is a work-in-progress" if
+warn "MR is a work-in-progress" if
   gitlab.mr_json["draft"]
 
 # WARN REALLY BIG DIFFS.
